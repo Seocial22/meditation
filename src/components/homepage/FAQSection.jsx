@@ -99,7 +99,7 @@ export default function YogaFAQSection() {
 
                             <div className="relative z-10 sm:pr-[240px]">
                                 <h3 className="text-xl md:text-2xl font-serif text-[#1A2E05] mb-4 leading-snug">
-                                    Searching for<br className="hidden md:block" />
+                                    Searching for <br className="hidden md:block" />
                                     <span className="md:hidden">inner peace? </span>
                                     <span className="hidden md:inline">inner peace?<br /></span>
                                     Start your journey!

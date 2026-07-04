@@ -73,7 +73,14 @@ export default function MeditationHeader() {
             {/* Center Logo */}
             <div className="flex-1 flex justify-center md:flex-initial">
               <Link href="/" className="hover:opacity-80 transition-opacity">
-                <Image src="/images/newlogo.png" alt="Logo" width={180} height={60} className="h-18 md:h-14 w-auto object-contain" priority />
+                <Image
+                  src="/images/newlogo.png"
+                  alt="Logo"
+                  width={500}
+                  height={150}
+                  className="w-[100px] h-auto"
+                  priority
+                />
               </Link>
             </div>
 
