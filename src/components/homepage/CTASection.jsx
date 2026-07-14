@@ -86,7 +86,7 @@ export default function CTASection() {
                 onClick={() => setIsContactModalOpen(true)}
                 className="group bg-[#C7DC49] text-[#10551f] px-10 py-4 rounded-full hover:bg-white transition-all duration-300 font-semibold tracking-wide shadow-lg hover:shadow-xl flex items-center gap-2 min-w-[220px] justify-center cursor-pointer"
               >
-                <span>Contact US</span>
+                <span>Contact Us</span>
                 <svg
                   className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
                   fill="none"

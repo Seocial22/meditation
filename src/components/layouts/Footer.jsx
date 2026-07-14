@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto px-4 relative z-10">
                 <div className="mb-10 text-center md:text-left flex justify-center md:justify-start">
                     <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
-                        <Image src="/images/newlogo.png" alt="Logo" width={180} height={60} className="h-12 md:h-16 w-auto object-contain" />
+                        <Image src="/images/newlogo.png" alt="Logo" width={180} height={60} className="h-29 md:h-28 w-auto object-contain" />
                     </Link>
                 </div>
                 <div className="grid md:grid-cols-4 gap-8 text-gray-200">
@@ -70,18 +70,29 @@ export default function Footer() {
                         <h4 className="text-sm font-semibold mb-4 text-white uppercase tracking-wider">Services</h4>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="/meditate-now" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                <Link href="/services/1" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
                                     Meditate Now
+
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/music" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                <Link href="/services/2" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
                                     Music for Meditation
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/inspiration" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                <Link href="/services/3" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
                                     Inspiration
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/4" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                    Music and Meditation
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/5" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                    Scared Art Exploration
                                 </Link>
                             </li>
                         </ul>

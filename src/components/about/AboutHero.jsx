@@ -20,7 +20,7 @@ export default function AboutHero() {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/30"></div>
             </div>
 
-            <div className="relative z-10 container mx-auto px-4 text-center max-w-5xl mt-20">
+            <div className="relative z-10 container mx-auto px-4 text-center max-w-5xl mt-44">
                 <div className="space-y-8">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}

@@ -59,7 +59,7 @@ export default function Hero() {
             </span>
             <span className="hidden sm:block mt-4 font-medium text-neutral-900">
               <br />
-             
+
               Join me on a meaningful journey of self-discovery and inner transformation.
             </span>
           </motion.p>
@@ -80,9 +80,9 @@ export default function Hero() {
             </Link>
 
             <Link
-              href="/about-practice"
+              href="/services"
               className="w-full sm:w-auto px-8 py-4 border-2 border-neutral-900 text-neutral-950 rounded-full font-bold text-sm md:text-base hover:bg-neutral-400 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm"
-                         
+
             >
               Learn About the Practice
             </Link>
@@ -95,15 +95,16 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: false }}
             onClick={() => setIsJourneyOpen(true)}
-            className="   mt-12 flex items-center gap-2 cursor-pointer group text-neutral-800 hover:text-neutral-600 transition-colors duration-300"
+            className="mt-12 flex items-center justify-center gap-3 cursor-pointer group w-fit"
           >
-            <span className=" bg-neutral-900 lg:bg-transparent text-white lg:text-neutral-900 px-4 py-2 rounded-full text-base md:text-lg font-medium tracking-wide border-b border-transparent group-hover:border-neutral-700 transition-all">
+            <span className="flex items-center gap-2 rounded-full flex items-center gap-2 px-6 py-3 rounded-full border-2 border-neutral-900 bg-white/10 backdrop-blur-sm text-neutral-900 font-semibold transition-all duration-300 group-hover:bg-neutral-900/15 group-hover:backdrop-blur-md group-hover:scale-105">
               Explore More
+
+              <ArrowRight
+                size={18}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
             </span>
-            <ArrowRight
-              size={20}
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
           </motion.div>
 
         </div>

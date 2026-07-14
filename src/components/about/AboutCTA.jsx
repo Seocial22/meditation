@@ -38,7 +38,7 @@ export default function AboutCTA() {
                     <Link href="/practice" className="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-gray-400 text-gray-800 rounded-full hover:bg-white hover:border-gray-800 transition-all duration-300 font-light">
                         Explore the Practice
                     </Link>
-                    <Link href="/meditate-now" className="inline-flex items-center justify-center px-8 py-4 bg-[#C7DC49] text-white rounded-full hover:bg-opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 font-light tracking-wide">
+                    <Link href="/meditate-now" className="inline-flex items-center justify-center px-8 py-4 bg-[#598005] text-white rounded-full hover:bg-opacity-90 shadow-lg hover:shadow-xl transition-all duration-300 font-light tracking-wide">
                         Start Your Meditation Experience
                     </Link>
                 </motion.div>

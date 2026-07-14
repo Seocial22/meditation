@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+
 export async function POST(req) {
     try {
-        const { name, email, message } = await req.json();
+        const { name, email, subject, message } = await req.json();
 
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
@@ -21,7 +22,8 @@ export async function POST(req) {
         const mailOptions = {
             from: process.env.SMTP_USER,
             to: process.env.SMTP_USER, // Sending to yourself (support email)
-            subject: `New Contact Form Submission from ${name}`,
+            replyTo: email,
+            subject: `New ${subject} Inquiry from ${name}`,
             html: `
 <!DOCTYPE html>
 <html>
@@ -76,6 +78,11 @@ export async function POST(req) {
             <a href="mailto:${email}" style="color: #10551f; text-decoration: none; border-bottom: 1px dotted #10551f;">${email}</a>
           </div>
         </div>
+
+        <div class="field-row">
+  <div class="label">Subject</div>
+  <div class="value">${subject}</div>
+</div>
         
         <div class="field-row">
           <div class="label">Message</div>
@@ -84,14 +91,20 @@ export async function POST(req) {
       </div>
       
       <div style="text-align: center;">
-        <a href="mailto:${email}?subject=Re: Your Inquiry" class="action-button">Reply to ${name.split(' ')[0]}</a>
+        <a href="mailto:${email}?subject=Re: Your Inquiry" class="action-button">Reply to ${name?.split(" ")[0] || "User"}</a>
       </div>
     </div>
     
     <div class="footer">
-      <p>&copy; ${new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+      <p>&copy; ${new Date().getFullYear()} Meditation Sanctuary. All rights reserved.</p>
       <p>This email was sent automatically from your website.</p>
-      <p style="font-size: 11px; margin-top: 10px; color: #bbb;">${new Date().toLocaleString()}</p>
+      <p style="font-size:11px;margin-top:10px;color:#bbb;">
+    ${new Date().toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        dateStyle: "medium",
+        timeStyle: "short"
+    })}
+</p>
     </div>
   </div>
 </body>

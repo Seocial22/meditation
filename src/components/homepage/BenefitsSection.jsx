@@ -46,7 +46,7 @@ export default function BenefitsSection() {
                 className="object-contain"
               />
             </div>
-            <p className="text-sm font-semibold text-gray-600 uppercase tracking-wide font-sans">
+            <p className="text-sm font-semibold text-[#D3D3D3] uppercase tracking-wide font-sans">
               Why Choose Us
             </p>
           </motion.div>
@@ -55,7 +55,7 @@ export default function BenefitsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#1A2E05] mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-serif bg-gradient-to-r from-[#A0CD3F] via-[#60AF22] to-[#228D07] bg-clip-text text-transparent mb-4"
           >
             Transform Your Body, Mind & Life
           </motion.h1>
@@ -64,7 +64,7 @@ export default function BenefitsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-lg text-[#D3D3D3] max-w-2xl mx-auto"
           >
             Meditation gently supports holistic wellbeing by working at the level of the nervous system and awareness.
           </motion.p>
@@ -82,7 +82,7 @@ export default function BenefitsSection() {
               className="text-center lg:text-right flex flex-col items-center lg:block"
             >
               <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-end gap-3 mb-3">
-                <h3 className="text-xl font-medium text-[#1A2E05] order-last lg:order-first">{benefits.topLeft.title}</h3>
+                <h3 className="text-xl font-medium bg-gradient-to-r from-[#A0CD3F] via-[#60AF22] to-[#228D07] bg-clip-text text-transparent order-last lg:order-first">{benefits.topLeft.title}</h3>
                 <div className="relative w-8 h-8 lg:w-6 lg:h-6 flex-shrink-0">
                   <Image
                     src="/images/icon-leaf.svg"
@@ -92,7 +92,7 @@ export default function BenefitsSection() {
                   />
                 </div>
               </div>
-              <p className="text-gray-600 max-w-sm mx-auto lg:mx-0">
+              <p className="text-[#D3D3D3] max-w-sm mx-auto lg:mx-0">
                 {benefits.topLeft.description}
               </p>
             </motion.div>
@@ -105,7 +105,7 @@ export default function BenefitsSection() {
               className="text-center lg:text-right flex flex-col items-center lg:block"
             >
               <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-end gap-3 mb-3">
-                <h3 className="text-xl font-medium text-[#1A2E05] order-last lg:order-first">{benefits.bottomLeft.title}</h3>
+                <h3 className="text-xl font-medium bg-gradient-to-r from-[#A0CD3F] via-[#60AF22] to-[#228D07] bg-clip-text text-transparent order-last lg:order-first">{benefits.bottomLeft.title}</h3>
                 <div className="relative w-8 h-8 lg:w-6 lg:h-6 flex-shrink-0">
                   <Image
                     src="/images/icon-leaf.svg"
@@ -115,7 +115,7 @@ export default function BenefitsSection() {
                   />
                 </div>
               </div>
-              <p className="text-gray-600 max-w-sm mx-auto lg:mx-0">
+              <p className="text-[#D3D3D3] max-w-sm mx-auto lg:mx-0">
                 {benefits.bottomLeft.description}
               </p>
             </motion.div>
@@ -176,9 +176,9 @@ export default function BenefitsSection() {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-medium text-[#1A2E05]">{benefits.topRight.title}</h3>
+                <h3 className="text-xl font-medium bg-gradient-to-r from-[#A0CD3F] via-[#60AF22] to-[#228D07] bg-clip-text text-transparent">{benefits.topRight.title}</h3>
               </div>
-              <p className="text-gray-600 max-w-sm mx-auto lg:mx-0">
+              <p className="text-[#D3D3D3] max-w-sm mx-auto lg:mx-0">
                 {benefits.topRight.description}
               </p>
             </motion.div>
@@ -199,9 +199,9 @@ export default function BenefitsSection() {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-xl font-medium text-[#1A2E05]">{benefits.bottomRight.title}</h3>
+                <h3 className="text-xl font-medium bg-gradient-to-r from-[#A0CD3F] via-[#60AF22] to-[#228D07] bg-clip-text text-transparent">{benefits.bottomRight.title}</h3>
               </div>
-              <p className="text-gray-600 max-w-sm mx-auto lg:mx-0">
+              <p className="text-[#D3D3D3] max-w-sm mx-auto lg:mx-0">
                 {benefits.bottomRight.description}
               </p>
             </motion.div>
@@ -225,9 +225,9 @@ export default function BenefitsSection() {
                 className="object-contain"
               />
             </div>
-            <h3 className="text-xl font-medium text-[#1A2E05]">{benefits.bottomCenter.title}</h3>
+            <h3 className="text-xl font-medium bg-gradient-to-r from-[#A0CD3F] via-[#60AF22] to-[#228D07] bg-clip-text text-transparent">{benefits.bottomCenter.title}</h3>
           </div>
-          <p className="text-gray-600 max-w-md mx-auto">
+          <p className="text-[#D3D3D3] max-w-md mx-auto">
             {benefits.bottomCenter.description}
           </p>
         </motion.div>

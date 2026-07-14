@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
+import ContactForm from '@/components/contact/ContactForm';
 
 export default function ContactPage() {
     return (
@@ -35,47 +36,7 @@ export default function ContactPage() {
                         className="bg-[#F7F8ED] p-8 md:p-12 rounded-[2rem] border border-[#C7DC49]/20"
                     >
                         <h2 className="text-3xl font-serif text-[#1A2E05] mb-8">Send a Message</h2>
-                        <form className="space-y-6">
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-[#1A2E05]/70 ml-1">Full Name</label>
-                                    <input 
-                                        type="text" 
-                                        className="w-full bg-white border border-[#C7DC49]/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#C7DC49]/50 transition-all font-light"
-                                        placeholder="John Doe"
-                                    />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-[#1A2E05]/70 ml-1">Email Address</label>
-                                    <input 
-                                        type="email" 
-                                        className="w-full bg-white border border-[#C7DC49]/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#C7DC49]/50 transition-all font-light"
-                                        placeholder="john@example.com"
-                                    />
-                                </div>
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-[#1A2E05]/70 ml-1">Subject</label>
-                                <select className="w-full bg-white border border-[#C7DC49]/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#C7DC49]/50 transition-all font-light text-gray-600">
-                                    <option>General Inquiry</option>
-                                    <option>Book a Session</option>
-                                    <option>Corporate Program</option>
-                                    <option>Retreat Info</option>
-                                </select>
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-[#1A2E05]/70 ml-1">Message</label>
-                                <textarea 
-                                    rows="5" 
-                                    className="w-full bg-white border border-[#C7DC49]/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#C7DC49]/50 transition-all font-light resize-none"
-                                    placeholder="How can we help you?"
-                                ></textarea>
-                            </div>
-                            <button className="w-full bg-[#1A2E05] text-white py-4 rounded-xl font-medium hover:bg-[#4A6741] transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-[#1A2E05]/20">
-                                <Send className="w-4 h-4" />
-                                Send Message
-                            </button>
-                        </form>
+                        <ContactForm/>
                     </motion.div>
 
                     {/* Contact Info */}

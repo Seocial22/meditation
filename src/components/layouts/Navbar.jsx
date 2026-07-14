@@ -1,208 +1,340 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+
+/**
+ * Font note:
+ * This design pairs a serif display face (for "Meditate" / "Get In Touch" / the
+ * footer line) with a tracked-out sans for the nav links. If you have next/font
+ * set up, drop something like this in your root layout and swap the classNames
+ * below (`font-serif-display`, `font-sans-nav`) for the generated variables:
+ *
+ *   import { Cormorant_Garamond, Manrope } from 'next/font/google';
+ *   const serifDisplay = Cormorant_Garamond({ subsets: ['latin'], weight: ['400','500'], variable: '--font-serif-display' });
+ *   const sansNav = Manrope({ subsets: ['latin'], weight: ['400','500'], variable: '--font-sans-nav' });
+ *
+ * Until then this falls back to the system serif/sans stacks, which still read fine.
+ */
+
+const NAV_LINKS = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Our Expertise' },
+  { href: '/blog', label: 'Blogs' },
+  { href: '/faq', label: 'FAQs' },
+];
+
+const GOLD = '#C8A96A';
+const GREEN = '#C7DC49';
+const INK = '#444444';
+
+function LotusMark({ className = '' }) {
+  // Single-stroke, line-art lotus — the signature mark. Petals gently
+  // separate/brighten on hover via group-hover, rather than a static icon.
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M16 22C16 22 16 12 16 8"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        className="transition-all duration-500"
+      />
+      <path
+        d="M16 22C16 22 9 19 8 12C8 12 14.5 12.5 16 20"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        className="transition-all duration-500 origin-bottom group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"
+      />
+      <path
+        d="M16 22C16 22 23 19 24 12C24 12 17.5 12.5 16 20"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        className="transition-all duration-500 origin-bottom group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+      />
+      <path
+        d="M16 22C16 22 11.5 17 12.5 10C12.5 10 17 11.5 16.5 19"
+        stroke="currentColor"
+        strokeWidth="0.75"
+        strokeLinecap="round"
+        opacity="0.7"
+        className="transition-all duration-500 origin-bottom group-hover:-translate-x-0.5"
+      />
+      <path
+        d="M16 22C16 22 20.5 17 19.5 10C19.5 10 15 11.5 15.5 19"
+        stroke="currentColor"
+        strokeWidth="0.75"
+        strokeLinecap="round"
+        opacity="0.7"
+        className="transition-all duration-500 origin-bottom group-hover:translate-x-0.5"
+      />
+      <path
+        d="M9 22C9 22 16 24.5 23 22"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function NavLink({ href, label, onClick, tone = 'light' }) {
+  const textTone =
+    tone === 'light' ? 'text-[#444444]' : 'text-white';
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={`group relative inline-flex items-center py-2 text-[13px] font-medium uppercase tracking-[0.18em] ${textTone} transition-all duration-300 ease-out hover:-translate-y-[2px]`}
+    >
+      <span className="transition-colors duration-300 group-hover:text-[#8f9f2e]">
+        {label}
+      </span>
+      <span
+        className="pointer-events-none absolute -bottom-0.5 left-1/2 h-px w-0 -translate-x-1/2 bg-[#C7DC49] transition-all duration-300 ease-out group-hover:w-full"
+      />
+    </Link>
+  );
+}
 
 export default function MeditationHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const headerRef = useRef(null);
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  // Measure the header's real rendered height (instead of a hardcoded
+  // spacer value) so the spacer below it can never drift out of sync —
+  // that mismatch is what was showing as a black gap under the nav.
+  useEffect(() => {
+    const node = headerRef.current;
+    if (!node) return;
+    const updateHeight = () => setHeaderHeight(node.offsetHeight);
+    updateHeight();
+    const resizeObserver = new ResizeObserver(updateHeight);
+    resizeObserver.observe(node);
+    return () => resizeObserver.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScroll = window.scrollY;
-
-      if (currentScroll > 80) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 60);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
     return () => {
       document.body.style.overflow = 'unset';
     };
   }, [isMobileMenuOpen]);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
+  const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <>
-      {/* Main Header - visible at top */}
-      <header className={`absolute bg-white   top-0 left-0 right-0 z-40   text-black transition-opacity duration-300 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-
-        {/* Top row with logo and menu items */}
-        <div className="container mx-auto px-2 py-0.5 md:py-4">
-          <div className="flex items-center justify-between">
-            {/* Left menu item - Hidden on mobile */}
+      {/* Single navbar — always fixed, styles transition on scroll rather than
+          swapping in a second nav element */}
+      <header
+        ref={headerRef}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ease-out ${
+          isScrolled
+            ? 'bg-white/90 backdrop-blur-md shadow-[0_8px_32px_-4px_rgba(200,169,106,0.18)] border-b border-[#C8A96A]/15'
+            : 'bg-white border-b border-transparent'
+        }`}
+      >
+        {/* Row 1 — Meditate | Logo | Get In Touch (desktop) / hamburger | logo (mobile)
+            Note: this row has a fixed height (not padding-driven), so the logo
+            can be sized larger than the row and overflow it slightly without
+            changing the navbar's total height. */}
+        <div
+          className={`container mx-auto px-6 md:px-10 flex items-center transition-all duration-500 ${
+            isScrolled ? 'h-14 md:h-16' : 'h-[72px] md:h-24'
+          }`}
+        >
+          <div className="flex items-center justify-between w-full">
+            {/* Left — Meditate (desktop) */}
             <Link
               href="/"
-              className="hidden md:flex items-center gap-1.5 hover:opacity-80 transition-opacity"
+              className="group hidden md:flex items-center gap-2.5 text-[#444444] transition-opacity duration-300 hover:opacity-70"
             >
-              <span className="text-sm font-light">Meditate</span>
+              <LotusMark className="w-[18px] h-[18px] text-[#C8A96A] transition-colors duration-500 group-hover:text-[#C7DC49]" />
+              <span className="font-serif text-[13px] uppercase tracking-[0.22em]">
+                Meditate
+              </span>
             </Link>
 
-            {/* Mobile Menu Button - Left side */}
+            {/* Mobile Menu Button — Left side */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden flex flex-col gap-1 p-1.5 hover:opacity-80 transition-opacity "
+              className="md:hidden flex flex-col gap-[5px] p-2 -ml-2"
               aria-label="Toggle menu"
             >
-              <span className="w-5 h-0.5 bg-black"></span>
-              <span className="w-5 h-0.5 bg-black"></span>
-              <span className="w-5 h-0.5 bg-black"></span>
+              <span className="w-5 h-px bg-[#444444]" />
+              <span className="w-5 h-px bg-[#444444]" />
+              <span className="w-5 h-px bg-[#444444]" />
             </button>
 
-            {/* Center Logo */}
-            <div className="flex-1 flex justify-center md:flex-initial">
-              <Link href="/" className="hover:opacity-80 transition-opacity">
+            {/* Center Logo — intentionally larger than the row; overflow is
+                allowed so it reads as a strong focal point without pushing
+                the header taller */}
+            <div className="flex-1 flex justify-center md:flex-initial relative z-10">
+              <Link
+                href="/"
+                className="group inline-block transition-transform duration-500 ease-out hover:scale-[1.03]"
+              >
                 <Image
                   src="/images/newlogo.png"
-                  alt="Logo"
-                  width={500}
-                  height={150}
-                  className="w-[100px] h-auto"
+                  alt="Meditation Treasures"
+                  width={600}
+                  height={250}
+                  className={`w-auto transition-all duration-500 ease-out opacity-95 group-hover:opacity-100 ${
+                    isScrolled ? 'h-14 md:h-[72px]' : 'h-20 md:h-28'
+                  }`}
                   priority
                 />
               </Link>
             </div>
 
-            {/* Right menu item - Hidden on mobile */}
+            {/* Right — Get In Touch (desktop) */}
             <Link
               href="/contact"
-              className="hidden md:flex items-center gap-1.5 hover:opacity-80 transition-opacity text-right"
+              className="group hidden md:inline-flex items-center gap-2 text-[#444444] transition-colors duration-300"
             >
-              <span className="text-sm font-light">Contact Us</span>
+              <span className="font-serif text-[13px] uppercase tracking-[0.22em] transition-colors duration-300 group-hover:text-[#8f9f2e]">
+                Get In Touch
+              </span>
+              <span className="transition-transform duration-300 ease-out group-hover:translate-x-1 text-[#C8A96A] group-hover:text-[#C7DC49]">
+                →
+              </span>
             </Link>
 
-            {/* Placeholder for mobile to balance layout */}
-            <div className="w-8 md:hidden"></div>
+            {/* Placeholder for mobile to balance the centered logo */}
+            <div className="w-6 md:hidden" />
           </div>
         </div>
 
-        {/* Bottom navigation bar - Desktop only */}
-        <nav className="border-t border-white/30 hidden md:block">
-          <div className="container mx-auto px-4">
-            <ul className="flex items-center justify-around py-3">
-              <li>
-                <Link
-                  href="/"
-                  className="text-base font-light hover:text-black/80 transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-base font-light hover:text-black/80 transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="text-base font-light hover:text-black/80 transition-colors"
-                >
-                  Service
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-base font-light hover:text-black/80 transition-colors"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="text-base font-light hover:text-black/80 transition-colors"
-                >
-                  FAQs
-                </Link>
-              </li>
+        {/* Hairline divider — thin, centered, doesn't span full width */}
+        <div className="hidden md:flex justify-center">
+          <div
+            className={`h-px bg-gradient-to-r from-transparent via-[#C8A96A]/40 to-transparent transition-all duration-500 ${
+              isScrolled ? 'w-1/3 opacity-70' : 'w-1/2 opacity-100'
+            }`}
+          />
+        </div>
+
+        {/* Row 2 — primary nav, desktop only */}
+        <nav className="hidden md:block">
+          <div className="container mx-auto px-10">
+            <ul
+              className={`flex items-center justify-center gap-12 lg:gap-16 transition-all duration-500 ${
+                isScrolled ? 'py-2.5' : 'py-3.5'
+              }`}
+            >
+              {NAV_LINKS.map((item) => (
+                <li key={item.href}>
+                  <NavLink href={item.href} label={item.label} />
+                </li>
+              ))}
             </ul>
           </div>
         </nav>
       </header>
 
-      {/* Mobile Menu Overlay - Full Screen */}
-      <div
-        className={`fixed inset-0 z-50 md:hidden transition-all duration-500 ${isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`}
-      >
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-[#10551f]"></div>
+      {/* Spacer so page content doesn't sit under the fixed header — height
+          is measured live from the header itself (see headerHeight above),
+          so it can never mismatch and leave a gap. */}
+      <div style={{ height: headerHeight }} className="transition-all duration-500 ease-out" />
 
-        {/* Animated background shapes */}
-        <div className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 ${isMobileMenuOpen ? 'opacity-20' : 'opacity-0'}`}>
-          <div className="absolute top-20 -left-20 w-64 h-64 bg-[#C7DC49] rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 -right-20 w-80 h-80 bg-[#C7DC49] rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+      {/* Mobile Menu — full-screen overlay */}
+      <div
+        className={`fixed inset-0 z-50 md:hidden transition-opacity duration-500 ease-out ${
+          isMobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        {/* Rich brand-green background, in keeping with the original mobile menu */}
+        <div className="absolute inset-0 bg-[#10551f]" />
+        <div
+          className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 ${
+            isMobileMenuOpen ? 'opacity-30' : 'opacity-0'
+          }`}
+        >
+          <div className="absolute top-16 -left-24 w-72 h-72 bg-[#C7DC49] rounded-full blur-3xl" />
+          <div className="absolute bottom-24 -right-20 w-80 h-80 bg-[#C8A96A] rounded-full blur-3xl" />
         </div>
 
-        {/* Menu Content */}
         <div className="relative h-full flex flex-col">
           {/* Close button */}
           <button
             onClick={closeMobileMenu}
-            className="absolute top-4 right-4 p-2.5 text-white hover:bg-white/10 rounded-full transition-all duration-300 hover:rotate-90 z-10"
+            className="absolute top-5 right-5 p-2.5 text-white hover:bg-white/10 rounded-full transition-all duration-300 hover:rotate-90 z-10"
             aria-label="Close menu"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
 
-          {/* Logo at top */}
-          <div className={` flex justify-center transition-all duration-700 py-2 px-3 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-10 opacity-0'}`}>
-            <Link href="/" className="inline-block" onClick={closeMobileMenu}>
-              <Image src="/images/newlogo.png" alt="Logo" width={180} height={60} className="h-28 w-auto object-contain" priority />
+          {/* Logo at top — larger, since it's the anchor of the fullscreen menu */}
+          <div
+            className={`flex justify-center pt-10 pb-4 transition-all duration-700 ${
+              isMobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-6 opacity-0'
+            }`}
+          >
+            <Link href="/" onClick={closeMobileMenu}>
+              <Image
+                src="/images/newlogo.png"
+                alt="Meditation Treasures"
+                width={220}
+                height={90}
+                className="h-24 w-auto object-contain"
+                priority
+              />
             </Link>
           </div>
 
+          <div className="flex justify-center">
+            <div className="w-16 h-px bg-white/30" />
+          </div>
+
           {/* Navigation Links */}
-          <nav className="flex-1 flex items-center justify-center px-6">
-            <ul className="space-y-1 w-full">
+          <nav className="flex-1 flex items-center justify-center px-8">
+            <ul className="w-full">
               {[
-                { href: '/', label: 'Home', delay: '100ms' },
-                { href: '/about', label: 'About', delay: '300ms' },
-                { href: '/services', label: 'Service', delay: '400ms' },
-                { href: '/blog', label: 'Blog', delay: '200ms' },
-                { href: '/faq', label: 'FAQs', delay: '500ms' },
-                { href: '/contact', label: 'Contact Us', delay: '600ms' },
+                ...NAV_LINKS,
+                { href: '/contact', label: 'Contact Us' },
               ].map((item, index) => (
                 <li
                   key={item.href}
-                  className={`transition-all duration-700 ${isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
-                    }`}
-                  style={{ transitionDelay: isMobileMenuOpen ? item.delay : '0ms' }}
+                  className={`transition-all duration-700 ${
+                    isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+                  }`}
+                  style={{ transitionDelay: isMobileMenuOpen ? `${120 + index * 80}ms` : '0ms' }}
                 >
                   <Link
                     href={item.href}
-                    className="block text-3xl font-light text-white py-3 hover:pl-4 transition-all duration-300 hover:text-[#C7DC49] border-b border-white/10 hover:border-[#C7DC49]"
                     onClick={closeMobileMenu}
+                    className="group flex items-center justify-between py-5 border-b border-white/15"
                   >
-                    {item.label}
+                    <span className="font-serif text-[34px] text-white transition-colors duration-300 group-hover:text-[#C7DC49]">
+                      {item.label}
+                    </span>
+                    <span className="text-[#C8A96A] transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
                   </Link>
                 </li>
               ))}
@@ -210,79 +342,16 @@ export default function MeditationHeader() {
           </nav>
 
           {/* Footer text */}
-          <div className={`pb-6 text-center text-white/60 text-sm transition-all duration-700 delay-700 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div
+            className={`pb-8 flex items-center justify-center gap-2 text-white/60 text-xs tracking-[0.2em] uppercase transition-all duration-700 delay-700 ${
+              isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+            }`}
+          >
+            <LotusMark className="w-3.5 h-3.5 text-[#C8A96A]" />
             Find your inner peace
           </div>
         </div>
       </div>
-
-      {/* Fixed navigation bar - shows when scrolled */}
-      <nav
-        className={`fixed top-0 left-0 right-0 shadow-md transition-all duration-300 z-50 ${isScrolled ? 'translate-y-0 bg-white text-gray-800 border-b border-gray-200' : '-translate-y-full bg-white/10 backdrop-blur-md border-b border-white/30 text-white'
-          }`}
-      >
-        {/* Mobile Scrolled Header */}
-        <div className="md:hidden  flex items-center justify-between  px-3 py-2 ">
-          <Link href="/">
-            <Image src="/images/newlogo.png" alt="Logo" width={140} height={45} className="h-18 w-auto object-contain  aspect[1/1]" />
-          </Link>
-          <button
-            onClick={toggleMobileMenu}
-            className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors"
-            aria-label="Open menu"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Desktop Navigation */}
-        <div className="container mx-auto px-4 hidden md:block">
-          <ul className="flex items-center justify-around py-3">
-            <li>
-              <Link
-                href="/"
-                className={`text-base font-light transition-colors ${isScrolled ? 'hover:text-gray-600' : 'hover:text-white/80'}`}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                className={`text-base font-light transition-colors ${isScrolled ? 'hover:text-gray-600' : 'hover:text-white/80'}`}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/services"
-                className={`text-base font-light transition-colors ${isScrolled ? 'hover:text-gray-600' : 'hover:text-white/80'}`}
-              >
-                Service
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blog"
-                className={`text-base font-light transition-colors ${isScrolled ? 'hover:text-gray-600' : 'hover:text-white/80'}`}
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/faq"
-                className={`text-base font-light transition-colors ${isScrolled ? 'hover:text-gray-600' : 'hover:text-white/80'}`}
-              >
-                FAQs
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
     </>
   );
 }

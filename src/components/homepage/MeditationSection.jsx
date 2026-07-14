@@ -99,7 +99,7 @@ export default function MeditationSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-            className="bg-[#C7DC49] text-white px-8 py-3 hover:bg-opacity-90 transition-colors duration-300 font-light tracking-wide rounded-full"
+            className="bg-[#6B8E23] text-white px-8 py-3  hover:bg-[#3E5F24] transition-colors duration-300 font-light tracking-wide rounded-full"
           >
             Meditate Now
           </motion.button>
