@@ -3,28 +3,26 @@ import nodemailer from 'nodemailer';
 
 
 export async function POST(req) {
-    try {
-        const { name, email, subject, message } = await req.json();
+  try {
 
-        const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: process.env.SMTP_PORT,
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-            },
-            tls: {
-                rejectUnauthorized: false
-            }
-        });
+    const { name, email, subject, message } = await req.json();
 
-        const mailOptions = {
-            from: process.env.SMTP_USER,
-            to: process.env.SMTP_USER, // Sending to yourself (support email)
-            replyTo: email,
-            subject: `New ${subject} Inquiry from ${name}`,
-            html: `
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: Number(process.env.SMTP_PORT) === 465,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: `"Meditation Treasures" <${process.env.SMTP_USER}>`,
+      to: process.env.SMTP_USER, // Sending to yourself (support email)
+      replyTo: email,
+      subject: `New ${subject} Inquiry from ${name}`,
+      html: `
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,27 +94,27 @@ export async function POST(req) {
     </div>
     
     <div class="footer">
-      <p>&copy; ${new Date().getFullYear()} Meditation Sanctuary. All rights reserved.</p>
+      <p>&copy; ${new Date().getFullYear()} Meditation Treasures. All rights reserved.</p>
       <p>This email was sent automatically from your website.</p>
       <p style="font-size:11px;margin-top:10px;color:#bbb;">
     ${new Date().toLocaleString("en-IN", {
         timeZone: "Asia/Kolkata",
         dateStyle: "medium",
         timeStyle: "short"
-    })}
+      })}
 </p>
     </div>
   </div>
 </body>
 </html>
             `,
-        };
+    };
 
-        await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions);
 
-        return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
-    } catch (error) {
-        console.error('Error sending email:', error);
-        return NextResponse.json({ message: 'Failed to send email' }, { status: 500 });
-    }
+    return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    return NextResponse.json({ message: 'Failed to send email' }, { status: 500 });
+  }
 }

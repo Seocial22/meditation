@@ -29,7 +29,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/10 to-white/15"></div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-2 sm:px-6 lg:px-8 md:pt-4 pb-20 pt-5 sm:pt-32 max-w-7xl mx-auto w-full h-full my-auto mt-20 md:mt-32">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-2 sm:px-6 lg:px-8 pb-20 pt-5 sm:pt-6 max-w-7xl mx-auto w-full h-full my-auto mt-4 md:mt-8">
 
           {/* Headline */}
           <motion.h1
