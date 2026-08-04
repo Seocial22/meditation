@@ -29,7 +29,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-white/10 to-white/15"></div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-2 sm:px-6 lg:px-8 pb-20 pt-5 sm:pt-6 max-w-7xl mx-auto w-full h-full my-auto mt-4 md:mt-8">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-2 sm:px-6 lg:px-8 pb-10 sm:pb-20 pt-4 sm:pt-6 max-w-7xl mx-auto w-full h-full my-auto mt-6 md:mt-8">
 
           {/* Headline */}
           <motion.h1
@@ -37,7 +37,7 @@ export default function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: false }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-['Cinzel'] font-semibold mb-4 sm:mb-6 md:mb-8 leading-tight px-2 tracking-wide"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-['Cinzel'] font-semibold mb-5 sm:mb-6 md:mb-8 leading-tight px-2 tracking-wide"
           >
             <span className="bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-900 text-transparent bg-clip-text">
               Meditation for Inner Peace, Balance & Transformation
@@ -50,7 +50,7 @@ export default function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             viewport={{ once: false }}
-            className="max-w-4xl mb-8 md:mb-12 px-4 sm:px-6 md:px-8 py-4 sm:py-5 rounded-3xl text-sm sm:text-base md:text-xl text-neutral-700 leading-relaxed bg-white/80 backdrop-blur-md border border-neutral-200 shadow-lg"
+            className="max-w-4xl mb-6 sm:mb-8 md:mb-12 px-4 sm:px-6 md:px-8 py-4 sm:py-5 rounded-3xl text-sm sm:text-base md:text-xl text-neutral-700 leading-relaxed bg-white/80 backdrop-blur-md border border-neutral-200 shadow-lg"
           >
             Discover a gentle yet powerful meditation practice that restores inner balance,
             awakens joy, expands awareness, and nurtures a deeply peaceful life — within and beyond.
@@ -74,14 +74,14 @@ export default function Hero() {
           >
             <Link
               href="/start-journey"
-              className="w-full sm:w-auto px-8 py-4 bg-neutral-900 text-white rounded-full font-medium text-sm md:text-base hover:bg-neutral-800 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl"
+              className="w-full sm:w-auto px-8 py-3 sm:py-4 bg-neutral-900 text-white rounded-full font-medium text-sm md:text-base hover:bg-neutral-800 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 shadow-xl"
             >
               Start Your Meditation Journey
             </Link>
 
             <Link
               href="/services"
-              className="w-full sm:w-auto px-8 py-4 border-2 border-neutral-900 text-neutral-950 rounded-full font-bold text-sm md:text-base hover:bg-neutral-400 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm"
+              className="w-full sm:w-auto px-8 py-3 sm:py-4 border-2 border-neutral-900 text-neutral-950 rounded-full font-bold text-sm md:text-base hover:bg-neutral-400 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 shadow-sm"
 
             >
               Learn About the Practice
@@ -95,7 +95,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.6 }}
             viewport={{ once: false }}
             onClick={() => setIsJourneyOpen(true)}
-            className="mt-12 flex items-center justify-center gap-3 cursor-pointer group w-fit"
+            className="mt-8 sm:mt-12 flex items-center justify-center gap-3 cursor-pointer group w-fit"
           >
             <span className="flex items-center gap-2 rounded-full flex items-center gap-2 px-6 py-3 rounded-full border-2 border-neutral-900 bg-white/10 backdrop-blur-sm text-neutral-900 font-semibold transition-all duration-300 group-hover:bg-neutral-900/15 group-hover:backdrop-blur-md group-hover:scale-105">
               Explore More
