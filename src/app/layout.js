@@ -19,9 +19,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
   title: "Meditation Treasures",
   description:
     "Discover guided meditation, mindfulness, inner peace and spiritual growth with Meditation Treasures.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+
 };
 
 export default function RootLayout({ children }) {

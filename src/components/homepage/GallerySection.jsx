@@ -11,8 +11,9 @@ const galleryImages = [
     { id: 6, src: "/images/gallery/slide2.jpeg", title: "Mountain Calm" },
     { id: 7, src: "/images/gallery/slide3.jpeg", title: "Ocean Bliss" },
     { id: 8, src: "/images/gallery/slide4.jpeg", title: "Desert Stillness" },
-    { id: 9, src: "/images/gallery/slide6.jpeg", title: "Desert Stillness" },
-    { id: 10, src: "/images/gallery/slide7.jpeg", title: "Desert Stillness" },
+    { id: 9, src: "/images/gallery/slide6.jpeg", title: "class" },
+    { id: 10, src: "/images/gallery/slide7.jpeg", title: "Meeting" },
+    { id: 11, src: "/images/gallery/slide 8.jpg", title: "Meditation" },
 ];
 
 export default function GallerySection() {

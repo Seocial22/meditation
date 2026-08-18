@@ -69,7 +69,7 @@ export default function OurStory() {
                         className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-xl bg-[#F7F8ED]"
                     >
                         <Image
-                            src="/images/men-medatating.webp"
+                            src="/images/meditaion.png"
                             alt="Person walking in nature"
                             fill
                             className="object-cover"
