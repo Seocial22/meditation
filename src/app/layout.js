@@ -31,7 +31,7 @@ export const metadata = {
   },
   title: "Meditation Treasures",
   description:
-    "Discover guided meditation, mindfulness, inner peace and spiritual growth with Meditation Treasures.",
+    "Discover guided meditation, Mental Silence, inner peace and spiritual growth with Meditation Treasures.",
   robots: {
     index: false,
     follow: false,

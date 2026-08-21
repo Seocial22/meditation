@@ -4,12 +4,12 @@ import { use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { 
-    Clock, 
-    User, 
-    CheckCircle, 
-    ArrowLeft, 
-    Calendar, 
+import {
+    Clock,
+    User,
+    CheckCircle,
+    ArrowLeft,
+    Calendar,
     MessageCircle,
     Users,
     Heart,
@@ -33,7 +33,7 @@ const services = [
             "Flexible online scheduling",
             "Progress tracking and adjustments",
             "Specific stress-reduction tools",
-            "Practical mindfulness integration"
+            "Practical presence integration"
         ],
         color: "from-blue-500 to-cyan-600"
     },
@@ -102,14 +102,14 @@ const services = [
         image: "/images/service-chakra.jpg",
         duration: "Varies",
         level: "All Levels",
-        longDescription: "Meditation isn't just about sitting still; it's about the movement of the soul. These workshops explore the intersection of sacred arts and mindfulness. Through meditative dance, movement, and self-exploration techniques, we learn to express our inner silence and discover new layers of our being.",
+        longDescription: "Meditation isn't just about sitting still; it's about the movement of the soul. These gatherings explore the intersection of sacred music, meditation, and dance. Through meditative movement, sound, and guided lecture-demonstrations, we anchor into presence and discover new layers of our being.",
         features: [
             "Meditative movement and dance",
-            "Self-discovery workshops",
+            "Sacred music and sound immersion",
+            "Guided lecture - demonstrations",
             "Creative spiritual expression",
-            "Emotional release through art",
-            "Guided self-exploration",
-            "Holistic heart-opening practices"
+            "Group presence practices",
+            "Holistic heart - opening experiences",
         ],
         color: "from-orange-500 to-amber-600"
     }
@@ -146,7 +146,7 @@ export default function ServiceDetailPage({ params }) {
                     priority
                 />
                 <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
-                
+
                 <div className="absolute inset-0 flex items-center justify-center text-center px-4">
                     <div className="max-w-4xl">
                         <motion.div
@@ -154,7 +154,7 @@ export default function ServiceDetailPage({ params }) {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
                         >
-                            <Link 
+                            <Link
                                 href="/services"
                                 className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors group"
                             >
@@ -195,7 +195,7 @@ export default function ServiceDetailPage({ params }) {
                                 <p className="text-xl text-gray-700 leading-relaxed font-light mb-8">
                                     {service.longDescription}
                                 </p>
-                                
+
                                 <div className="bg-[#F7F8ED] p-8 rounded-3xl mb-12">
                                     <h3 className="text-2xl font-serif text-[#1A2E05] mb-6">What to Expect</h3>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

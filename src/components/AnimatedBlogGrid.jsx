@@ -221,7 +221,7 @@ export default function AnimatedBlogGrid({ blogs }) {
             className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed"
             variants={subtitleVariants}
           >
-            Explore transformative teachings on meditation, mindfulness, and the journey within
+            Explore transformative teachings on meditation, mental silence, and the journey within
           </motion.p>
           <motion.div
             className="mt-6 text-sm text-gray-500 font-light"

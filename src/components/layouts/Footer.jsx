@@ -76,13 +76,14 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services/2" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
-                                    Music for Meditation
+                                <Link href="/services/1" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                    Group Meditation
+
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/services/3" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
-                                    Inspiration
+                                    Corporate Programs
                                 </Link>
                             </li>
                             <li>
@@ -92,7 +93,7 @@ export default function Footer() {
                             </li>
                             <li>
                                 <Link href="/services/5" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
-                                    Scared Art Exploration
+                                    Sacred Arts Exploration
                                 </Link>
                             </li>
                         </ul>

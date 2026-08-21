@@ -58,7 +58,7 @@ export default function IntroductionSection() {
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             className="text-lg md:text-xl leading-relaxed"
           >
-            It has been over forty years since I first experienced the profound stillness of deep meditation. As a shy teenager growing up in the French suburbs of Geneva, I was introduced to Sahaja Yoga meditation by one of my high-school teachers, a colleague of my mother.
+            It has been over forty years since I first experienced the profound stillness of deep meditation. As a shy teenager growing up in the French suburbs of Geneva, I was introduced to meditation by one of my high-school teachers.
           </motion.p>
 
           <motion.p

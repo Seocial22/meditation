@@ -13,13 +13,13 @@ function getBlogs() {
 
 export const metadata = {
   title:
-    "Meditation & Yoga Blog | Insights on Inner Peace, Mindfulness & Spiritual Growth",
+    "Meditation & Yoga Blog | Insights on Inner Peace, Presence & Spiritual Growth",
   description:
-    "Explore expert blogs on meditation techniques, yoga practices, mindfulness, spiritual awakening, and holistic wellness. Discover the path to inner peace and transformation.",
+    "Explore expert blogs on meditation techniques, yoga practices, Presence, spiritual awakening, and holistic wellness. Discover the path to inner peace and transformation.",
   keywords: [
     "meditation blog",
     "yoga insights",
-    "mindfulness blogs",
+    "Mental relief blogs",
     "spiritual growth",
     "inner peace guide",
     "meditation techniques",
@@ -31,7 +31,7 @@ export const metadata = {
   openGraph: {
     title: "Meditation & Yoga Blog | Journey to Inner Peace",
     description:
-      "Expert insights on meditation, yoga, mindfulness and spiritual practices for a more peaceful and balanced life",
+      "Expert insights on meditation, yoga, Mental Relief and spiritual practices for a more peaceful and balanced life",
     type: "website",
     url: "https://yoursite.com/blog",
     images: [
@@ -64,7 +64,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Meditation & Yoga Blog | Journey to Inner Peace",
     description:
-      "Expert insights on meditation, yoga, mindfulness and spiritual practices",
+      "Expert insights on meditation, yoga,  and spiritual practices",
     images: ["/images/blog-og.jpg"],
   },
 

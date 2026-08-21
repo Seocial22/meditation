@@ -47,7 +47,7 @@ export default function MeditationSection() {
               viewport={{ once: false }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
             >
-              Despite rapid technological progress, stress, anxiety, division, and dissatisfaction continue to rise. We are more connected than ever — yet often disconnected from ourselves.
+              Despite rapid technological progress and overall enhanced wellbeing, stress, anxiety, division, and dissatisfaction continue to rise. We are more connected than ever — yet often disconnected from ourselves.
               <br /><br />
               Meditation offers a natural, grounded response. Not an escape from life — but a deeper understanding of it from within.
             </motion.p>

@@ -40,7 +40,7 @@ export default function Hero() {
             className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-['Cinzel'] font-semibold mb-5 sm:mb-6 md:mb-8 leading-tight px-2 tracking-wide"
           >
             <span className="bg-gradient-to-r from-neutral-900 via-neutral-700 to-neutral-900 text-transparent bg-clip-text">
-              Meditation for Inner Peace, Balance & Transformation
+              Meditation for Inner Peace, Balance & self-development
             </span>
           </motion.h1>
 

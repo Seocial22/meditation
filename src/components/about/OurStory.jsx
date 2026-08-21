@@ -48,7 +48,7 @@ export default function OurStory() {
                             >
                                 A practitioner of meditation since her teenage years, she has been practicing meditation on a daily basis for over 40 years, guiding meditation sessions and delivering meditation workshops for 30 years as a volunteer for non-profit organizations.
                             </motion.p>
-                            <motion.p
+                            {/* <motion.p
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false }}
@@ -56,7 +56,7 @@ export default function OurStory() {
                                 className="font-medium text-[#1A2E05]"
                             >
                                 She holds a Masters degree in Information and Communication, with a specialization in print mass media. She also holds a degree from the University of Hawaii East-West Center in Advocacy and Communication for Policy Makers, as well as diplomas in the field of knowledge management. Apart from meditation, she also holds a professional diploma in Indian classical dance (Bharat Natyam) and has been performing for live audiences in the Asia-Pacific region on a regular basis.
-                            </motion.p>
+                            </motion.p> */}
                         </div>
                     </div>
 
@@ -66,7 +66,7 @@ export default function OurStory() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: false }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="relative h-[600px] w-full rounded-2xl overflow-hidden shadow-xl bg-[#F7F8ED]"
+                        className="relative h-[380px] w-full max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl bg-[#F7F8ED]"
                     >
                         <Image
                             src="/images/meditaion.png"

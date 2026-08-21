@@ -11,7 +11,7 @@ export const metadata = {
         "yoga services",
         "meditation workshops",
         "yoga retreats",
-        "mindfulness coaching",
+        "Mental Silence coaching",
         "group meditation",
         "private yoga sessions",
         "spiritual guidance",
