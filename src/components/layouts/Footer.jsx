@@ -53,8 +53,8 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
-                                    Service
+                                <Link href="/offerings" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                    Offering
                                 </Link>
                             </li>
                             <li>
@@ -65,34 +65,34 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 2: Services */}
+                    {/* Column 2: Offerings */}
                     <div>
-                        <h4 className="text-sm font-semibold mb-4 text-white uppercase tracking-wider">Services</h4>
+                        <h4 className="text-sm font-semibold mb-4 text-white uppercase tracking-wider">Programs</h4>
                         <ul className="space-y-2">
                             <li>
-                                <Link href="/services/1" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                <Link href="/offerings/1" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
                                     Meditate Now
 
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services/1" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                <Link href="/offerings/2" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
                                     Group Meditation
 
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services/3" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                <Link href="/offerings/3" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
                                     Corporate Programs
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services/4" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                <Link href="/offerings/4" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
                                     Music and Meditation
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services/5" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
+                                <Link href="/offerings/5" className="text-base text-gray-300 font-light hover:text-[#C7DC49] transition-colors">
                                     Sacred Arts Exploration
                                 </Link>
                             </li>

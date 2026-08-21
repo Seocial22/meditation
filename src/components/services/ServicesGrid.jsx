@@ -225,7 +225,7 @@ export default function ServicesGrid() {
 
                                     {/* CTA Button */}
                                     <Link
-                                        href={`/services/${service.id}`}
+                                        href={`/offerings/${service.id}`}
                                         className="inline-flex items-center gap-2 text-[#4A6741] font-medium group-hover:text-[#C7DC49] transition-colors duration-300"
                                     >
                                         <span>Learn More</span>

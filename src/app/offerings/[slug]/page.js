@@ -17,7 +17,7 @@ import {
     Sunrise
 } from 'lucide-react';
 
-const services = [
+const offerings = [
     {
         id: 1,
         title: "Private Online Sessions",
@@ -115,32 +115,32 @@ const services = [
     }
 ];
 
-export default function ServiceDetailPage({ params }) {
-    const { id } = use(params);
-    const service = services.find(s => s.id === parseInt(id));
+export default function OfferingDetailPage({ params }) {
+    const { slug } = use(params);
+    const offering = offerings.find(s => s.id === parseInt(slug));
 
-    if (!service) {
+    if (!offering) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-[#F7F8ED]">
                 <div className="text-center">
-                    <h1 className="text-4xl font-serif text-[#1A2E05] mb-4">Service Not Found</h1>
-                    <Link href="/services" className="text-[#4A6741] hover:text-[#C7DC49] transition-colors">
-                        Return to Services
+                    <h1 className="text-4xl font-serif text-[#1A2E05] mb-4">Offering Not Found</h1>
+                    <Link href="/offerings" className="text-[#4A6741] hover:text-[#C7DC49] transition-colors">
+                        Return to Offerings
                     </Link>
                 </div>
             </div>
         );
     }
 
-    const IconComponent = service.icon;
+    const IconComponent = offering.icon;
 
     return (
         <main className="min-h-screen bg-white mt-40">
             {/* Hero Section */}
             <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
                 <Image
-                    src={service.image}
-                    alt={service.title}
+                    src={offering.image}
+                    alt={offering.title}
                     fill
                     className="object-cover"
                     priority
@@ -155,23 +155,23 @@ export default function ServiceDetailPage({ params }) {
                             transition={{ duration: 0.6 }}
                         >
                             <Link
-                                href="/services"
+                                href="/offerings"
                                 className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors group"
                             >
                                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                                <span>Back to Services</span>
+                                <span>Back to Offerings</span>
                             </Link>
                             <h1 className="text-4xl md:text-6xl font-serif text-white mb-4">
-                                {service.title}
+                                {offering.title}
                             </h1>
                             <div className="flex flex-wrap justify-center gap-6 mt-6">
                                 <div className="flex items-center gap-2 text-white/90">
                                     <Clock className="w-5 h-5 text-[#C7DC49]" />
-                                    <span>{service.duration}</span>
+                                    <span>{offering.duration}</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-white/90">
                                     <User className="w-5 h-5 text-[#C7DC49]" />
-                                    <span>{service.level}</span>
+                                    <span>{offering.level}</span>
                                 </div>
                             </div>
                         </motion.div>
@@ -191,28 +191,21 @@ export default function ServiceDetailPage({ params }) {
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8 }}
                             >
-                                <h2 className="text-3xl font-serif text-[#1A2E05] mb-8">About this Service</h2>
+                                <h2 className="text-3xl font-serif text-[#1A2E05] mb-8">About this Offering</h2>
                                 <p className="text-xl text-gray-700 leading-relaxed font-light mb-8">
-                                    {service.longDescription}
+                                    {offering.longDescription}
                                 </p>
 
                                 <div className="bg-[#F7F8ED] p-8 rounded-3xl mb-12">
                                     <h3 className="text-2xl font-serif text-[#1A2E05] mb-6">What to Expect</h3>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        {service.features.map((feature, index) => (
+                                        {offering.features.map((feature, index) => (
                                             <div key={index} className="flex items-start gap-3">
                                                 <CheckCircle className="w-5 h-5 text-[#C7DC49] mt-1 flex-shrink-0" />
                                                 <span className="text-gray-600 font-light">{feature}</span>
                                             </div>
                                         ))}
                                     </div>
-                                </div>
-
-                                <div className="space-y-6">
-                                    <h3 className="text-2xl font-serif text-[#1A2E05]">Preparation Tips</h3>
-                                    <p className="text-gray-600 leading-relaxed font-light">
-                                        To get the most out of your session, we recommend finding a quiet space where you won't be disturbed. Wear comfortable clothing and have a cushion or chair ready. A stable internet connection is required for online sessions.
-                                    </p>
                                 </div>
                             </motion.div>
                         </div>
@@ -230,8 +223,8 @@ export default function ServiceDetailPage({ params }) {
                                         <IconComponent className="w-8 h-8 text-[#4A6741]" />
                                     </div>
                                     <div>
-                                        <p className="text-sm font-semibold text-[#4A6741] uppercase tracking-wider">Service Type</p>
-                                        <p className="text-xl font-serif text-[#1A2E05]">{service.title}</p>
+                                        <p className="text-sm font-semibold text-[#4A6741] uppercase tracking-wider">Offering Type</p>
+                                        <p className="text-xl font-serif text-[#1A2E05]">{offering.title}</p>
                                     </div>
                                 </div>
 

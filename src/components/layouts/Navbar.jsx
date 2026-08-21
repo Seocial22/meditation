@@ -21,7 +21,7 @@ import Image from 'next/image';
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/services', label: 'Our Expertise' },
+  { href: '/offerings', label: 'Our Expertise' },
   { href: '/blog', label: 'Blogs' },
   { href: '/faq', label: 'FAQs' },
 ];

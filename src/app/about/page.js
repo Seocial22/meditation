@@ -17,11 +17,11 @@ export default function AboutPage() {
     return (
         <main className="bg-white">
             <AboutHero />
-            <OurStory />
             <Philosophy />
             <Practice />
             <WhyMeditation />
             <Experience />
+            <OurStory />
             <FutureVision />
             <AboutCTA />
         </main>

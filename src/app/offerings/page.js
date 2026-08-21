@@ -21,7 +21,7 @@ export const metadata = {
         description:
             "Discover our range of meditation and yoga services designed to support your journey to inner peace and wellness",
         type: "website",
-        url: "https://yoursite.com/services",
+        url: "https://yoursite.com/offerings",
         images: [
             {
                 url: "/images/services-og.jpg",
@@ -33,7 +33,7 @@ export const metadata = {
         siteName: "Meditation & Yoga Sanctuary",
     },
     alternates: {
-        canonical: "https://yoursite.com/services",
+        canonical: "https://yoursite.com/offerings",
     },
     robots: {
         index: true,
