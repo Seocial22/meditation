@@ -23,6 +23,7 @@ const NAV_LINKS = [
   { href: '/about', label: 'About' },
   { href: '/offerings', label: 'Our Expertise' },
   { href: '/blog', label: 'Blogs' },
+  { href: '/start-journey', label: 'Start Your Journey' },
   { href: '/faq', label: 'FAQs' },
 ];
 
