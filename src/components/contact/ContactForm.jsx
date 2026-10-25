@@ -89,7 +89,7 @@ export default function ContactForm({ onClose }) {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="John Doe"
+                placeholder="Enter your name"
                 required
                 className="w-full bg-white text-[#1A2E05] placeholder:text-gray-500 border border-[#C7DC49]/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#C7DC49]/50 focus:border-[#C7DC49] transition-all"
             />
@@ -105,7 +105,7 @@ export default function ContactForm({ onClose }) {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="john@example.com"
+                placeholder="Enter your email address"
                 required
                 className="w-full bg-white text-[#1A2E05] placeholder:text-gray-500 border border-[#C7DC49]/30 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#C7DC49]/50 focus:border-[#C7DC49] transition-all"
             />
